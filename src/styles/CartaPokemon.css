@@ -1,0 +1,19 @@
+.carta-pokemon {
+    width: 200px;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    color: black;
+    transition: transform 0.2s;
+}
+.carta-pokemon:hover {
+    transform: scale(1.05);
+}
+
+.carta-pokemon img {
+    width: auto;
+    height: 70%;
+}
