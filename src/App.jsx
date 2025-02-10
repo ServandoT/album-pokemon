@@ -5,7 +5,6 @@ function App() {
 
   return (
     <>
-      <h1>Pokemons 1ª Generación</h1>
       <ListaPokemon />
     </>
   )

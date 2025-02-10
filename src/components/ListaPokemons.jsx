@@ -4,6 +4,7 @@ import "../styles/ListaPokemons.css";
 
 const ListaPokemon = () => {
     const [pokemones, setPokemones] = useState([]);
+    const [filtro, setFiltro] = useState("");
 
     useEffect(() => {
         const obtenerPokemons = async () => {
@@ -35,11 +36,28 @@ const ListaPokemon = () => {
         obtenerPokemons();
     }, []);
 
+    const handleFiltroChange = (event) => {
+        setFiltro(event.target.value);
+    };
+
+    const pokemonesFiltrados = pokemones.filter((poke) =>
+        poke.nombre.toLowerCase().includes(filtro.toLowerCase())
+    );
+
     return (
-        <div className="album">
-            {pokemones.map((poke, index) => (
-                <CartaPokemon key={index} nombre={poke.nombre} imagen={poke.imagen} sonido={poke.sonido} />
-            ))}
+        <div>
+            <input
+                type="text"
+                placeholder="Buscar Pokémon"
+                value={filtro}
+                onChange={handleFiltroChange}
+                className="filtro-input"
+            />
+            <div className="album">
+                {pokemonesFiltrados.map((poke, index) => (
+                    <CartaPokemon key={index} nombre={poke.nombre} imagen={poke.imagen} sonido={poke.sonido} />
+                ))}
+            </div>
         </div>
     );
 };
